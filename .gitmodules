@@ -1,0 +1,6 @@
+[submodule "job-fit-ai-backend"]
+	path = job-fit-ai-backend
+	url = https://github.com/jenishk20/job-fit-ai-backend
+[submodule "job-fit-ai-frontend"]
+	path = job-fit-ai-frontend
+	url = https://github.com/jenishk20/job-fit-ai-frontend
