@@ -1,8 +1,10 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/ec2-user/deployment
+  - source: /deploy
+    destination: /var/www/html
+  - source: /backend
+    destination: /var/www/backend
 permissions:
   - object: scripts/
     mode: 777
@@ -10,7 +12,7 @@ permissions:
       - directory
 hooks:
   AfterInstall:
-    - location: scripts/stop-containers.sh
+    - location: scripts/after_install.sh
       timeout: 300
     
   ApplicationStart:
