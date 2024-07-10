@@ -3,7 +3,8 @@ phases:
   install:
     commands:
       - echo "the installation phase begins"
-      - git submodule update --init --recursive 
+      - git clone https://github.com/jenishk20/job-fit-ai-frontend 
+      - git clone https://github.com/jenishk20/job-fit-ai-backend
   pre_build:
     commands:
       - echo "the prebuild phase begins"
