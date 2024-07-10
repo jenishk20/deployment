@@ -13,15 +13,11 @@ phases:
   build:
     commands:
       - echo "the build phase begins"
-      # - echo `pwd`
       - npm run build
-      # - echo `ls -la`
 
   post_build:
     commands:
       - echo "the post build phase. navigating back to root path"
-      - cp -R build/ ../
-
 artifacts:
   files:
     - build/**/*
