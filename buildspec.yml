@@ -5,16 +5,14 @@ phases:
       nodejs: latest  # Adjust to your required Node.js version
     commands:
       - echo "Installing dependencies"
-      - git clone https://github.com/jenishk20/job-fit-ai-frontend frontend
-      - git clone https://github.com/jenishk20/job-fit-ai-backend backend
-      - cd frontend && npm install && cd ..
-      - cd backend && npm install && cd ..
+      - git clone https://github.com/jenishk20/job-fit-ai-frontend
+      - git clone https://github.com/jenishk20/job-fit-ai-backend
   build:
     commands:
       - echo "Building frontend"
       - cd frontend && npm run build && cd ..
       - echo "Building backend"
-      - cd backend && npm run build && cd ..
+      - cd backend && npm run start && cd ..
   post_build:
     commands:
       - echo "Copying build artifacts"
