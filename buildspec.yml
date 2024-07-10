@@ -6,7 +6,7 @@ phases:
   pre_build:
     commands:
       - echo "the prebuild phase begins"
-      - cd client
+      - cd job-fit-ai-frontend
       - npm install
   build:
     commands:
