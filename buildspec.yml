@@ -3,6 +3,7 @@ phases:
   install:
     commands:
       - echo "the installation phase begins"
+      - git submodule update --init --recursive 
   pre_build:
     commands:
       - echo "the prebuild phase begins"
