@@ -1,29 +1,29 @@
 version: 0.2
 phases:
   install:
+    runtime-versions:
+      nodejs: latest  # Adjust to your required Node.js version
     commands:
-      - echo "the installation phase begins"
-      - git clone https://github.com/jenishk20/job-fit-ai-frontend 
-      - git clone https://github.com/jenishk20/job-fit-ai-backend
-  pre_build:
-    commands:
-      - echo "the prebuild phase begins"
-      - cd job-fit-ai-frontend
-      - npm install
+      - echo "Installing dependencies"
+      - git clone https://github.com/jenishk20/job-fit-ai-frontend frontend
+      - git clone https://github.com/jenishk20/job-fit-ai-backend backend
+      - cd frontend && npm install && cd ..
+      - cd backend && npm install && cd ..
   build:
     commands:
-      - echo "the build phase begins"
-      - npm run build
-
+      - echo "Building frontend"
+      - cd frontend && npm run build && cd ..
+      - echo "Building backend"
+      - cd backend && npm run build && cd ..
   post_build:
     commands:
-      - echo "the post build phase. navigating back to root path"
+      - echo "Copying build artifacts"
+      - mkdir -p deploy
+      - cp -R frontend/build/* deploy/
 artifacts:
   files:
-    - build/**/*
+    - deploy/**/*
     - appspec.yml
-    - server/**/*
-    - nginx/*
-    - scripts/*
-    - docker-compose.yaml
+    - scripts/**/*
+    - docker-compose.yml
     - Dockerfile
